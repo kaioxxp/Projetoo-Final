@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Indústrias Wayne - Dashboard</h1>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Painel de Controle - Indústrias Wayne</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <style>
+                body {
+                    background-color: #f8f9fa;
+                }
+                .card {
+                    margin: 20px 0;
+                }
+            </style>
+        </head>
+        <body>
+        
+        <div class="container">
+            <h1 class="text-center mt-5">Painel de Controle - Indústrias Wayne</h1>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            Segurança
+                        </div>
+                        <div class="card-body">
+                            <canvas id="segurancaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            Recursos
+                        </div>
+                        <div class="card-body">
+                            <canvas id="recursosChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-warning text-white">
+                            Atividades
+                        </div>
+                        <div class="card-body">
+                            <canvas id="atividadesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Dados de exemplo
+            const segurancaData = [12, 19, 3, 5, 2, 3];
+            const recursosData = [7, 11, 5, 8, 6, 4];
+            const atividadesData = [2, 3, 20, 5, 1, 4];
+        
+            // Configuração do gráfico de Segurança
+            const segurancaCtx = document.getElementById('segurancaChart').getContext('2d');
+            new Chart(segurancaCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Segurança 1', 'Segurança 2', 'Segurança 3', 'Segurança 4', 'Segurança 5', 'Segurança 6'],
+                    datasets: [{
+                        label: 'Incidentes',
+                        data: segurancaData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        
+            // Configuração do gráfico de Recursos
+            const recursosCtx = document.getElementById('recursosChart').getContext('2d');
+            new Chart(recursosCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Recurso A', 'Recurso B', 'Recurso C', 'Recurso D', 'Recurso E'],
+                    datasets: [{
+                        label: 'Uso de Recursos',
+                        data: recursosData,
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+                    }]
+                }
+            });
+        
+            // Configuração do gráfico de Atividades
+            const atividadesCtx = document.getElementById('atividadesChart').getContext('2d');
+            new Chart(atividadesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Atividade 1', 'Atividade 2', 'Atividade 3', 'Atividade 4', 'Atividade 5'],
+                    datasets: [{
+                        label: 'Atividades Completas',
+                        data: atividadesData,
+                        fill: false,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        tension: 0.1
+                    }]
+                }
+            });
+        </script>
+        
+        </body>
+        </html>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="usuarios.html">Gerenciar Usuários</a></li>
+            <li><a href="recursos.html">Gerenciar Recursos</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div id="dashboardConteudo">
+                <!-- Informações relevantes sobre segurança, recursos e atividades -->
+                <p>Dados de segurança e atividades serão exibidos aqui.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
